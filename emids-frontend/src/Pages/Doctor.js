@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import AddDiagnosis from "../Components/AddDiagnosis";
+import AddDoctor from "../Components/AddDoctor";
+import AddPatient from "../Components/AddPatient";
 import DisabledButtonLoading from "../Components/DisabledBtnLoding";
 import PDFPreview from "../Components/PdfPreview";
+import Share from "../Components/Share";
 import Spinner from "../Components/Spinner";
 
 export default function Doctor() {
@@ -26,6 +30,8 @@ export default function Doctor() {
   const [result, setResult] = useState(1);
 
   const [loading, setLoading] = useState(false);
+
+  const [formStep, setFormStep] = useState(0);
 
   const updateForm = () => {
     var today = new Date();
@@ -102,78 +108,92 @@ export default function Doctor() {
       <div class="grid grid-cols-2 divide-x">
         <div className="p-10">
           <div>
-            <div className="mb-6">
-              <label
-                htmlFor="default-input"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Symptoms
-              </label>
-              <input
-                value={Symptoms}
-                onChange={(e) => setSymptoms(e.target.value)}
-                type="text"
-                id="default-input"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            {formStep === 0 && (
+              <AddDoctor
+                setDoctor_Name={setDoctor_Name}
+                Doctor_Name={Doctor_Name}
+                setDoctor_Address={setDoctor_Address}
+                Doctor_Address={Doctor_Address}
+                setDoctor_Degree={setDoctor_Degree}
+                Doctor_Degree={Doctor_Degree}
+                setDoctor_RegistrationNumber={setDoctor_RegistrationNumber}
+                Doctor_RegistrationNumber={Doctor_RegistrationNumber}
+                setDoctor_Specialization={setDoctor_Specialization}
+                Doctor_Specialization={Doctor_Specialization}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="default-input"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Diagnosis
-              </label>
-              <input
-                value={Diagnosis}
-                onChange={(e) => setDiagnosis(e.target.value)}
-                type="text"
-                id="default-input"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            )}
+            {formStep === 1 && (
+              <AddPatient
+                setDoctor_Name={setDoctor_Name}
+                Doctor_Name={Doctor_Name}
+                setDoctor_Address={setDoctor_Address}
+                Doctor_Address={Doctor_Address}
+                setDoctor_Degree={setDoctor_Degree}
+                Doctor_Degree={Doctor_Degree}
+                setDoctor_RegistrationNumber={setDoctor_RegistrationNumber}
+                Doctor_RegistrationNumber={Doctor_RegistrationNumber}
+                setDoctor_Specialization={setDoctor_Specialization}
+                Doctor_Specialization={Doctor_Specialization}
               />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="default-input"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Medicne
-              </label>
-              <input
-                value={TabletName}
-                onChange={(e) => setTabletName(e.target.value)}
-                type="text"
-                id="default-input"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+            )}
+            {formStep === 2 && (
+              <AddDiagnosis
+                setDiagnosis={setDiagnosis}
+                setSymptoms={setSymptoms}
+                Symptoms={Symptoms}
+                Diagnosis={Diagnosis}
               />
-            </div>
+            )}
+            {formStep === 3 && (
+              <AddDiagnosis
+                setDiagnosis={setDiagnosis}
+                setSymptoms={setSymptoms}
+                Symptoms={Symptoms}
+                Diagnosis={Diagnosis}
+              />
+            )}
+            {formStep === 4 && <Share />}
           </div>
-          {!loading && (
-            <button
-              onClick={() => updateForm()}
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Update
-              <svg
-                aria-hidden="true"
-                className="ml-2 -mr-1 w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+          <div className="flex justify-between h-26">
+            {formStep >= 1 && (
+              <button
+                onClick={() => setFormStep(formStep - 1)}
+                type="button"
+                className="mt-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          )}
-          {loading && <DisabledButtonLoading />}
-          <br />
-          <br />
-          <br />
+                Prev
+              </button>
+            )}
+            {formStep <= 3 && !loading && (
+              <button
+                onClick={() => {
+                  updateForm();
+                  setFormStep(formStep + 1);
+                }}
+                type="button"
+                className="mt-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Next
+                <svg
+                  aria-hidden="true"
+                  className="ml-2 -mr-1 w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            )}
+            {loading && <DisabledButtonLoading />}
+            <br />
+            <br />
+            <br />
+          </div>
         </div>
         <>
           <PDFPreview loading={loading} result={result} />
