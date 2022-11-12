@@ -1,6 +1,51 @@
 const express = require("express");
 const Doctor = require("../models/doctor");
 const router = express.Router();
+const nodemailer = require("nodemailer");
+
+const smtpTransport = nodemailer.createTransport({
+  service: "Gmail",
+  auth: {
+    user: "find.roomy.otp@gmail.com",
+    pass: "tvffezplxkojfxux",
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+});
+const shareEHRByMail = (mail, subject, context, pathPdf) => {
+  const mailOptions = {
+    from: "find.roomy.otp@gmail.com",
+    to: mail,
+    subject: subject,
+    text: context,
+    attachments: [
+      {
+        filename: "ehr-myehr-01.pdf",
+        path: pathPdf,
+        contentType: "application/pdf",
+      },
+    ],
+  };
+  smtpTransport.sendMail(mailOptions, function (error, response) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("mail sent");
+    }
+  });
+};
+
+router.post("/share-ehr", async (req, res) => {
+  console.log(req.body);
+  shareEHRByMail(
+    req.body.email,
+    "MyEHR Shared a Prescription",
+    "Please Find Attached EHR",
+    req.body.pathPdf
+  );
+  res.send({ success: true });
+});
 
 router.post("/new", (req, res) => {
   // create a new doctor instance and collect the data
