@@ -14,7 +14,7 @@ const Pricing = () => {
   };
   return (
     <>
-      <div className="flex justify-between gap-10 p-10 m-10">
+      <div className="flex flex-wrap justify-between gap-10 p-10 m-10">
         <div className="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-8">
           <h5 className="mb-4 text-xl font-medium text-gray-800 ">
             Standard plan
@@ -45,7 +45,7 @@ const Pricing = () => {
                 />
               </svg>
               <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                2 team members
+                20 team members
               </span>
             </li>
             <li className="flex space-x-3">
@@ -88,26 +88,7 @@ const Pricing = () => {
                 Integration help
               </span>
             </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
-              {/* Icon */}
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Check icon</title>
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-base font-normal leading-tight text-gray-500">
-                Sketch Files
-              </span>
-            </li>
+
             <li className="flex space-x-3 line-through decoration-gray-500">
               {/* Icon */}
               <svg
@@ -179,7 +160,7 @@ const Pricing = () => {
         </div>
         <div className="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-8">
           <h5 className="mb-4 text-xl font-medium text-gray-800 ">
-            Standard plan
+            Silver plan
           </h5>
           <div className="flex items-baseline text-gray-900">
             <span className="text-3xl font-semibold"> ₹</span>
@@ -207,7 +188,7 @@ const Pricing = () => {
                 />
               </svg>
               <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                2 team members
+                100 team members
               </span>
             </li>
             <li className="flex space-x-3">
@@ -250,31 +231,12 @@ const Pricing = () => {
                 Integration help
               </span>
             </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
+
+            <li className="flex space-x-3 decoration-gray-500">
               {/* Icon */}
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Check icon</title>
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-base font-normal leading-tight text-gray-500">
-                Sketch Files
-              </span>
-            </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
-              {/* Icon */}
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                className="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -340,9 +302,7 @@ const Pricing = () => {
           </button>
         </div>
         <div className="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-8">
-          <h5 className="mb-4 text-xl font-medium text-gray-800 ">
-            Standard plan
-          </h5>
+          <h5 className="mb-4 text-xl font-medium text-gray-800 ">Gold plan</h5>
           <div className="flex items-baseline text-gray-900">
             <span className="text-3xl font-semibold"> ₹</span>
             <span className="text-5xl font-extrabold tracking-tight">4900</span>
@@ -369,7 +329,7 @@ const Pricing = () => {
                 />
               </svg>
               <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                2 team members
+                Unlimited team members
               </span>
             </li>
             <li className="flex space-x-3">
@@ -389,7 +349,7 @@ const Pricing = () => {
                 />
               </svg>
               <span className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                20GB Cloud storage
+                Unlimited Cloud storage
               </span>
             </li>
             <li className="flex space-x-3">
@@ -412,31 +372,12 @@ const Pricing = () => {
                 Integration help
               </span>
             </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
+
+            <li className="flex space-x-3 decoration-gray-500">
               {/* Icon */}
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Check icon</title>
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="text-base font-normal leading-tight text-gray-500">
-                Sketch Files
-              </span>
-            </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
-              {/* Icon */}
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                className="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -452,11 +393,11 @@ const Pricing = () => {
                 API Access
               </span>
             </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
+            <li className="flex space-x-3  decoration-gray-500">
               {/* Icon */}
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                className="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -472,11 +413,11 @@ const Pricing = () => {
                 Complete documentation
               </span>
             </li>
-            <li className="flex space-x-3 line-through decoration-gray-500">
+            <li className="flex space-x-3 decoration-gray-500">
               {/* Icon */}
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                className="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
