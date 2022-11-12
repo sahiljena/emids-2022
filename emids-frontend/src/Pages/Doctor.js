@@ -28,6 +28,14 @@ export default function Doctor() {
   const [loading, setLoading] = useState(false);
 
   const updateForm = () => {
+    var today = new Date();
+    var time = new Date().toTimeString().split(" ")[0];
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + "/" + dd + "/" + yyyy;
+
     var myHeaders = new Headers();
     myHeaders.append("authority", "examinator.epam.com");
     myHeaders.append("accept", "*/*");
@@ -65,8 +73,8 @@ export default function Doctor() {
       Duration: Duration,
       TabletName: TabletName,
       DrugName: DrugName,
-      date: date,
-      Time: Time,
+      date: today,
+      Time: time,
     });
 
     var requestOptions = {
@@ -104,6 +112,36 @@ export default function Doctor() {
               <input
                 value={Symptoms}
                 onChange={(e) => setSymptoms(e.target.value)}
+                type="text"
+                id="default-input"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="default-input"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Diagnosis
+              </label>
+              <input
+                value={Diagnosis}
+                onChange={(e) => setDiagnosis(e.target.value)}
+                type="text"
+                id="default-input"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="default-input"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                Medicne
+              </label>
+              <input
+                value={TabletName}
+                onChange={(e) => setTabletName(e.target.value)}
                 type="text"
                 id="default-input"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
