@@ -22,7 +22,7 @@ curl --location --request GET 'http://localhost:5000/api/patient/find?q={name}'
 
 ### Finding Doctor by Name
 ```
-curl --location --request GET 'http://localhost:5000/api/doctor/find?q=dr'
+curl --location --request GET 'http://localhost:5000/api/doctor/find?q={name}'
 ```
 
 ### Adding a new Doctor
