@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddDiagnosis from "../Components/AddDiagnosis";
 import AddDoctor from "../Components/AddDoctor";
+import AddMedicine from "../Components/AddMedicine";
 import AddPatient from "../Components/AddPatient";
 import DisabledButtonLoading from "../Components/DisabledBtnLoding";
 import PDFPreview from "../Components/PdfPreview";
@@ -89,7 +90,7 @@ export default function Doctor() {
       body: raw,
       redirect: "follow",
     };
-    setLoading(true);
+    formStep >= 2 && setLoading(true);
     fetch("http://localhost:5000/pdf", requestOptions)
       .then((response) => response.text())
       .then((data) => {
@@ -124,16 +125,12 @@ export default function Doctor() {
             )}
             {formStep === 1 && (
               <AddPatient
-                setDoctor_Name={setDoctor_Name}
-                Doctor_Name={Doctor_Name}
-                setDoctor_Address={setDoctor_Address}
-                Doctor_Address={Doctor_Address}
-                setDoctor_Degree={setDoctor_Degree}
-                Doctor_Degree={Doctor_Degree}
-                setDoctor_RegistrationNumber={setDoctor_RegistrationNumber}
-                Doctor_RegistrationNumber={Doctor_RegistrationNumber}
-                setDoctor_Specialization={setDoctor_Specialization}
-                Doctor_Specialization={Doctor_Specialization}
+                setPatient_Name={setPatient_Name}
+                setPatient_Age={setPatient_Age}
+                setPatient_Sex={setPatient_Sex}
+                setPatient_Address={setPatient_Address}
+                setPatient_MobileNumber={setPatient_MobileNumber}
+                setSymptoms={setSymptoms}
               />
             )}
             {formStep === 2 && (
@@ -145,11 +142,9 @@ export default function Doctor() {
               />
             )}
             {formStep === 3 && (
-              <AddDiagnosis
-                setDiagnosis={setDiagnosis}
-                setSymptoms={setSymptoms}
-                Symptoms={Symptoms}
-                Diagnosis={Diagnosis}
+              <AddMedicine
+                setTabletName={setTabletName}
+                setDuration={setDuration}
               />
             )}
             {formStep === 4 && <Share />}
