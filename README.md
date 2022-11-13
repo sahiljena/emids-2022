@@ -1,4 +1,10 @@
 # emids-2022
+## Description 
+To be able to enter a prescription with structured data in a software system, within a comparable time to hand written prescription
+
+EMR software is used by doctors to enter all patient information. They also add the prescribed prescriptions, prescription data entry in software makes it possible for pharmacy and insurance firms to access prescription information and lends itself to research and analytics, but it takes far longer than entering a prescription by hand.
+
+We will therefore simplify and make prescription data entry comparable to handwritten prescription data entry.
 
 ## 🛠️ Tech Stack
 - React.js for Frontend
