@@ -1,4 +1,46 @@
 # emids-2022
+
+## 🛠️ Tech Stack
+- React.js for Frontend
+- Node.js and Express.js for Backend
+- MonogDB for Database
+- Tailwind CSS for frontend UI
+
+📂 Project Organization
+------------
+
+    ├── README.md          <- The top-level README for developers using this project.
+    │
+    ├── emids-frontend
+    │       ├── package.json        <- Containing the required node modules start up scripts etc
+    │       ├── postcss.config.js   <- Tailwind css file
+    │       ├── tailwind.config.js  <- Tailwind css file
+    │       ├── public             
+    │       └── src
+    │           ├── App.js          <- React App 
+    │           ├── index.js        <- React App startup 
+    │           ├── Home.js         <- Home Page 
+    │           ├── Layout.js       <- Navigation Structure 
+    │           ├── pages           <- Folder for pages
+    │           └── components      <- Folder for react components
+    │
+    │
+    └── emids-backend
+        ├── node_modules      <- Folder containg node modules 
+        ├── .env              <- MongoDB connection string
+        ├── prescription
+        │    └── index.js     <- Making the html for EHR and converting to pdf format  
+        ├── routes
+        │    ├── patient.js   <- API  Routes for add/deleting a patient  
+        │    └── doctor.js    <- API Routes for add/deleting a doctor   
+        │
+        ├── Prescription.pdf. <- Sample PDF File for editing
+        │
+        ├── index.js          <- Express app with startu
+        ├── package.json      <- Containing the required node modules start up scripts etc
+        └── db
+             └──  conn.js     <- Connect to MongoDB 
+             
 ## Clone and Start
 #### Starting the frontend
 
@@ -14,6 +56,7 @@ npm start
 cd emids-backend
 node index
 ```
+
 
 
 ## Progress till now
