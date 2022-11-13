@@ -32,7 +32,10 @@
         │    └── index.js     <- Making the html for EHR and converting to pdf format  
         ├── routes
         │    ├── patient.js   <- API  Routes for add/deleting a patient  
-        │    └── doctor.js    <- API Routes for add/deleting a doctor   
+        │    └── doctor.js    <- API Routes for add/deleting a doctor
+        ├── models
+        │    ├── patient.js   <- Defining  Database Structure Routes for  a patient  
+        │    └── doctor.js    <- Defining  Database Structure Routes for  a doctor 
         │
         ├── Prescription.pdf. <- Sample PDF File for editing
         │
