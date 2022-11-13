@@ -12,6 +12,46 @@ We will therefore simplify and make prescription data entry comparable to handwr
 - MonogDB for Database
 - Tailwind CSS for frontend UI
 
+## cURL for backend
+
+### Finding Patient by Name
+
+``` 
+curl --location --request GET 'http://localhost:5000/api/patient/find?q={name}'
+```
+
+### Finding Doctor by Name
+```
+curl --location --request GET 'http://localhost:5000/api/doctor/find?q=dr'
+```
+
+### Adding a new Doctor
+```
+curl --location --request POST 'http://localhost:5000/api/doctor/new' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: ARRAffinity=59ed4a69001d7adf38f26ae63c4e590c47dbb2ac549c856f50127e235fd98cf4; ARRAffinitySameSite=59ed4a69001d7adf38f26ae63c4e590c47dbb2ac549c856f50127e235fd98cf4' \
+--data-urlencode 'name=Dr. Saumya Gupta
+' \
+--data-urlencode 'degree=MBBS' \
+--data-urlencode 'specialization=Dentist' \
+--data-urlencode 'address=D57/51B, Siddhgiri Bagh, Varanasi 201001' \
+--data-urlencode 'registrationNumber=02916'
+```
+
+### Adding a new Patient
+
+```
+curl --location --request POST 'http://localhost:5000/api/patient/new' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Cookie: ARRAffinity=59ed4a69001d7adf38f26ae63c4e590c47dbb2ac549c856f50127e235fd98cf4; ARRAffinitySameSite=59ed4a69001d7adf38f26ae63c4e590c47dbb2ac549c856f50127e235fd98cf4' \
+--data-urlencode 'name=Sahil Kumar Jena' \
+--data-urlencode 'age=21' \
+--data-urlencode 'symtoms=complain of fever' \
+--data-urlencode 'gender=Male' \
+--data-urlencode 'address=chennai' \
+--data-urlencode 'phoneNumber=8787064557'
+```
+
 📂 Project Organization
 ------------
 
